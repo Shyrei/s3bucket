@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Images models</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Comment</th>
+        <th scope="col">URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${images.empty}">
+        <td colspan="2"> No Images Available</td>
+    </tr>
+    <tr th:each="image : ${images}">
+        <td><span th:text="${image.name}"> Name </span></td>
+        <td><span th:text="${image.comment}"> Comment </span></td>
+        <td><a th:href="${image.url}"> URL </a></td>
+    </tr>
+    </tbody>
+</table>
+<form method="GET" action="index">
+    <input type="submit" value="Upload image model"/>
+</form>
+</body>
+</html>
